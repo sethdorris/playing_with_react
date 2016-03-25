@@ -9,5 +9,5 @@ var HelloWorld = React.createClass({
 
 ReactDOM.render(
 	<HelloWorld />,
-	document.getElementById('app');
+	document.getElementById('app')
 );
