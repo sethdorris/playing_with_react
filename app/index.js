@@ -10,7 +10,7 @@ let User_Data = {
 class ProfilePic extends React.Component {
 	render() {
 		return (
-			<img src={this.props.imageUrl.image} style={{height: 100, width: 100}} />
+			<img src={this.props.imageUrl} style={{height: 100, width: 100}} />
 		)
 	}
 }
@@ -19,7 +19,7 @@ class ProfileLink extends React.Component  {
 	render() {
 		return (
 			<div>
-				<a href={'https://www.github.com' + this.props.username.username}>{this.props.user.username}</a>
+				<a href={'https://www.github.com' + this.props.username}>{this.props.username}</a>
 			</div>
 		)
 	}
