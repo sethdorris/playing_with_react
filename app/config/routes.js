@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactRouter from 'react-router';
-const Router = ReactRouter.Router;
-const Route = ReactRouter.Route;
-const IndexRoute = ReactRouter.IndexRoute;
+import * as ReactRouter from 'react-router';
+import {Route, Router, IndexRoute} from 'react-router';
 import Main from '../components/Main';
 import Home from '../components/Home';
 
