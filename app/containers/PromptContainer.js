@@ -1,5 +1,6 @@
 import React from 'react';
-import Styles from '../styles';
+import Prompt from '../components/Prompt';
+const PropTypes = React.PropTypes;
 
 class PromptContainer extends React.Component {
     constructor() {
@@ -8,15 +9,17 @@ class PromptContainer extends React.Component {
             username: ''
         };
 		console.log(this);
+		this.handleUpdateUser = this.handleUpdateUser.bind(this);
+		this.handleSubmitUser = this.handleSubmitUser.bind(this);
     }
 
-    onUpdateUser(e) {
+    handleUpdateUser(e) {
         this.setState({
             username: e.target.value
         })
     }
 
-    onSubmitUser(e) {
+    handleSubmitUser(e) {
         e.preventDefault();
         var username = this.state.username;
         this.setState({
@@ -24,35 +27,25 @@ class PromptContainer extends React.Component {
         });
 
         if (this.props.routeParams.playerOne) {
-            console.log(this.context)
+            this.context.router.push({
+				pathname: '/battle',
+				query: {
+					playerOne: this.props.routeParams.playerOne,
+					playerTwo: this.state.username
+				}
+			})
         } else {
-            console.log(this.context)
+            this.context.router.push('/playerTwo/' + this.state.username);
         }
     }
 
     render() {
         return (
-            <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={Styles.transparentBg}>
-                <h1>{this.props.route.header}</h1>
-                <div className="col-sm-12">
-                    <form onSubmit={this.onSubmitUser}>
-                        <div className="form-group">
-                            <input 
-                                className="form-control"
-                                placeholder="Github Username"
-                                onChange={this.onUpdateUser}
-                                value={this.state.username}
-                                type="text" />
-                        </div>
-                        <div className="form-group col-sm-4 col-sm-offset-4">
-                        <button 
-                            className="btn btn-block btn-success"
-                            type="submit">Continue
-                        </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+			<Prompt
+				onSubmitUser={this.handleSubmitUser}
+				onUpdateUser={this.handleUpdateUser}
+				header={this.props.route.header}
+				username={this.state.username} />
         )
    }
 }
