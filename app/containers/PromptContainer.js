@@ -7,9 +7,10 @@ class PromptContainer extends React.Component {
         this.state = {
             username: ''
         };
-        this.contextTypes = {
-            router: React.PropTypes.object.isRequired
-        }
+    }
+
+    this.contextTypes = {
+        router: React.PropTypes.object.isRequired
     }
 
     onUpdateUser(e) {
@@ -24,12 +25,12 @@ class PromptContainer extends React.Component {
         this.setState({
             username: ''
         });
-    }
 
-    if (this.props.routeParams.playerOne) {
-        console.log(this.context)
-    } else {
-        console.log(this.context)
+        if (this.props.routeParams.playerOne) {
+            console.log(this.context)
+        } else {
+            console.log(this.context)
+        }
     }
 
     render() {
@@ -56,7 +57,7 @@ class PromptContainer extends React.Component {
                 </div>
             </div>
         )
-                }
-                }
+   }
+}
 
 export default PromptContainer;
