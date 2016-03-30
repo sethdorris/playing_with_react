@@ -7,10 +7,7 @@ class PromptContainer extends React.Component {
         this.state = {
             username: ''
         };
-    }
-
-    this.contextTypes = {
-        router: React.PropTypes.object.isRequired
+		console.log(this);
     }
 
     onUpdateUser(e) {
@@ -58,6 +55,10 @@ class PromptContainer extends React.Component {
             </div>
         )
    }
+}
+
+PromptContainer.contextTypes = {
+	router: React.PropTypes.object.isRequired
 }
 
 export default PromptContainer;
