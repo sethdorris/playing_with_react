@@ -1,6 +1,7 @@
 import React from 'react';
 
 function puke (object) {
+	console.log(object);
 	return <pre>{JSON.stringify(object, null, ' ')}</pre>
 }
 
