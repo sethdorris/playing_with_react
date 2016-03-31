@@ -7,26 +7,30 @@ class ConfirmBattleContainer extends React.Component {
 		super();
 		this.state = {
 			isLoading: true,
-			playerInfo: []
+			playersInfo: []
 		}
 	}
 	
-	render() {
-		return (
-			<ConfirmBattle isLoading={this.state.isLoading} playersInfo={this.state.playerInfo}/>
-		)
-	}
-
 	componentDidMount() {
 		let query = this.props.location.query;
 		githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
 		.then( (players) => {
+			console.log(players);
 			this.setState({
 				isLoading: false,
 				playersInfo: [players[0], players[1]]
 			})
+			console.log(this.state);
 		})
 	}
+	
+	render() {
+		return (
+			<ConfirmBattle isLoading={this.state.isLoading} playersInfo={this.state.playersInfo}/>
+		)
+	}
+
+
 }
 
 ConfirmBattleContainer.contextTypes = {
