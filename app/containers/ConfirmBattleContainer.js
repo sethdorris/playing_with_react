@@ -18,7 +18,7 @@ class ConfirmBattleContainer extends React.Component {
 		.then( (players) => {
 			console.log(players);
 			this.setState({
-				isLoading: true,
+				isLoading: false,
 				playersInfo: [players[0], players[1]]
 			})
 			console.log(this.state);
