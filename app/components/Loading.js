@@ -19,7 +19,7 @@ const styles = {
 
 class Loading extends React.Component {
 	constructor(props) {
-		super();
+		super(props);
 		this.state = {
 			originalText: props.text,
 			text: this.originalText
@@ -41,7 +41,7 @@ class Loading extends React.Component {
 		}, this.props.speed)
 	}
 	
-	componentWillMount() {
+	componentWillUnmount() {
 		clearInterval(this.interval);
 	}
 	
