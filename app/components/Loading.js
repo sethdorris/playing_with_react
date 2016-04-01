@@ -1,4 +1,4 @@
-import React, {propTypes} from 'react';
+import React, {PropTypes} from 'react';
 
 const styles = {
 	container: {
@@ -18,10 +18,10 @@ const styles = {
 }
 
 class Loading extends React.Component {
-	constructor() {
+	constructor(props) {
 		super();
 		this.state = {
-			originalText: this.props.text,
+			originalText: props.text,
 			text: this.originalText
 		}
 	}
@@ -41,13 +41,6 @@ class Loading extends React.Component {
 		}, this.props.speed)
 	}
 	
-	getDefaultProps() {
-		return {
-			text: 'Loading',
-			speed: 300
-		}
-	}
-	
 	componentWillMount() {
 		clearInterval(this.interval);
 	}
@@ -62,8 +55,13 @@ class Loading extends React.Component {
 }
 
 Loading.propTypes = {
-	speed: propTypes.number,
-	text: propTypes.string
+	speed: PropTypes.number,
+	text: PropTypes.string
+}
+
+Loading.defaultProps = {
+	text: 'Loading',
+	speed: 300
 }
 
 export default Loading;

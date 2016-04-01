@@ -4,6 +4,7 @@ import UserDetails from './UserDetails';
 import UserDetailsWrapper from './UserDetailsWrapper';
 import {Link} from 'react-router';
 import MainContainer from '../containers/MainContainer';
+import Loading from './Loading';
 
 function StartOver() {
 	return (
@@ -18,7 +19,7 @@ function StartOver() {
 function Results (props) {
 	if (props.isLoading === true) {
 		return (
-			<p> LOADING! </p>
+			<Loading text='One Moment' speed={100} />
 		)
 	}
 	if (props.scores[0] === props.scores[1]) {
