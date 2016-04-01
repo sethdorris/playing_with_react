@@ -38,7 +38,7 @@ class Loading extends React.Component {
 					text: this.state.text + '.'
 				})
 			}
-		})
+		}, 300)
 	}
 	
 	componentWillMount() {
